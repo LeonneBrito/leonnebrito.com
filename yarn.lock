@@ -300,14 +300,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notionhq/client@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@notionhq/client/-/client-2.2.2.tgz#621eab5788fd1aca67d53454871bbf4122e651ba"
-  integrity sha512-L7TB+UyhnWTSv1ek7xzGr9+mS9o76qMKnZ8Ag8H2q6QgvywAiPOFcE3ulWI/1AnMewGVRqwb30agPHMVRY/K/w==
-  dependencies:
-    "@types/node-fetch" "^2.5.10"
-    node-fetch "^2.6.1"
-
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@panva/asn1.js/-/asn1.js-1.0.0.tgz#dd55ae7b8129e02049f009408b97c61ccf9032f6"
@@ -324,6 +316,23 @@
     picocolors "^1.0.0"
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
+
+"@prisma/client@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.7.1.tgz#66fe84aca25de17cb3d9141dec003f34714914b9"
+  integrity sha512-/GbnOwIPtjiveZNUzGXOdp7RxTEkHL4DZP3vBaFNadfr6Sf0RshU5EULFzVaSi9i9PIK9PYd+1Rn7z2B2npb9w==
+  dependencies:
+    "@prisma/engines-version" "4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c"
+
+"@prisma/engines-version@4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c":
+  version "4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c.tgz#43ff7d85478e64a1d790e4d53e78768a2acfacfe"
+  integrity sha512-Bd4LZ+WAnUHOq31e9X/ihi5zPlr4SzTRwUZZYxvWOxlerIZ7HJlVa9zXpuKTKLpI9O1l8Ec4OYCKsivWCs5a3Q==
+
+"@prisma/engines@4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.7.1.tgz#d657d4d05724158140022fa00614e143643090c2"
+  integrity sha512-zWabHosTdLpXXlMefHmnouhXMoTB1+SCbUU3t4FCmdrtIOZcarPKU3Alto7gm/pZ9vHlGOXHCfVZ1G7OIrSbog==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -499,14 +508,6 @@
   version "0.7.31"
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
-
-"@types/node-fetch@^2.5.10":
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.2.tgz#d1a9c5fd049d9415dce61571557104dec3ec81da"
-  integrity sha512-DHqhlq5jeESLy19TYhLakJ07kNumXWjcDdxXsLUMJZ6ue8VZJj4kLPQVE/2mdHh3xZziNF1xppu5lwmS53HR+A==
-  dependencies:
-    "@types/node" "*"
-    form-data "^3.0.0"
 
 "@types/node@*", "@types/node@18.11.9", "@types/node@>=12.12.47", "@types/node@>=13.7.0":
   version "18.11.9"
@@ -1596,15 +1597,6 @@ follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
-
-form-data@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-3.0.1.tgz#ebd53791b78356a99af9a300d4282c4d5eb9755f"
-  integrity sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
-  dependencies:
-    asynckit "^0.4.0"
-    combined-stream "^1.0.8"
-    mime-types "^2.1.12"
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -3148,6 +3140,13 @@ prettier@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.0.tgz#c7df58393c9ba77d6fba3921ae01faf994fb9dc9"
   integrity sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==
+
+prisma@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.7.1.tgz#0a1beac26abdc4421e496b75eb50413f3ee3b0ba"
+  integrity sha512-CCQP+m+1qZOGIZlvnL6T3ZwaU0LAleIHYFPN9tFSzjs/KL6vH9rlYbGOkTuG9Q1s6Ki5D0LJlYlW18Z9EBUpGg==
+  dependencies:
+    "@prisma/engines" "4.7.1"
 
 prop-types@^15.0.0, prop-types@^15.8.1:
   version "15.8.1"

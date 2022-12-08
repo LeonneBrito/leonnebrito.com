@@ -1,62 +1,32 @@
-import { Client } from '@notionhq/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const notion = new Client({ auth: process.env.NOTION_CONTACTS_API_KEY });
+import { prisma } from '../../../lib';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const { name, email, message } = req.body;
-  await notion.pages
-    .create({
-      parent: {
-        database_id: `${process.env.NOTION_CONTACTS_DATABASE_ID}`
-      },
-      properties: {
-        name: {
-          type: 'title',
-          title: [
-            {
-              type: 'text',
-              text: {
-                content: name
-              }
-            }
-          ]
-        },
-        email: {
-          type: 'email',
-          email: email
-        },
-        message: {
-          type: 'rich_text',
-          rich_text: [
-            {
-              type: 'text',
-              text: {
-                content: message
-              }
-            }
-          ]
-        },
-        createdAt: {
-          type: 'rich_text',
-          rich_text: [
-            {
-              type: 'text',
-              text: {
-                content: new Date().toLocaleString()
-              }
-            }
-          ]
+
+  if (req.method === 'POST') {
+    if (!name || !email || !message) {
+      res.status(400).json({ message: 'Missing required fields' });
+      return;
+    }
+
+    await prisma.email
+      .create({
+        data: {
+          name,
+          email,
+          message
         }
-      }
-    })
-    .then(() => {
-      res.status(200).json({ success: true });
-    })
-    .catch(error => {
-      res.status(500).json({ success: false });
-    });
+      })
+      .then(response => {
+        return res.status(200).json(response);
+      })
+      .catch(error => {
+        return res.status(400).json({ message: error.message });
+      });
+  }
 }

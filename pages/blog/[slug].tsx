@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Clock } from 'phosphor-react';
 
 import ViewsCounter from '../../components/ViewsCounter';
+import { useTranslation } from '../../hooks/useTranslation';
 import { getPosts } from '../../lib';
 import { styled } from '../../stitches.config';
 import { Heading } from '../../ui';
@@ -17,6 +18,7 @@ interface PostProps {
 
 const Post = ({ date, markdown, title, slug }: PostProps) => {
   const readingTime = markdown.split(' ').length / 200;
+  const { translations } = useTranslation();
 
   return (
     <Content>
@@ -37,7 +39,7 @@ const Post = ({ date, markdown, title, slug }: PostProps) => {
         <div>
           <span>
             <Clock size={20} />
-            {readingTime.toFixed(0)} min de leitura
+            {readingTime.toFixed(0)} {translations.blog.read_time}
           </span>
           <ViewsCounter slug={slug} blogPage={true} />
         </div>

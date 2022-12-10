@@ -2,5 +2,7 @@
   "title": "Our stories.",
   "description": "Here you will find articles from various areas, from technology to beer and travel. Hope you enjoy! Unfortunately for now only posts in Portuguese. :(",
   "subtitle": "All posts",
-  "no_posts": "No posts yet."
+  "no_posts": "No posts yet.",
+  "views": "views",
+  "read_time": "min read"
 }

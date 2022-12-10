@@ -1,0 +1,14 @@
+{
+  "placeholder": "Digite um comando ou pesquise...",
+  "home": "Início",
+  "about": "Sobre",
+  "blog": "Blog",
+  "setup": "Setup",
+  "contact": "Contato",
+  "general": "Geral",
+  "copy": "Copiar Link",
+  "copy_success": "Link copiado com sucesso!",
+  "send_email": "Enviar e-mail",
+  "source_code": "Código Fonte",
+  "go_to": "Ir para"
+}

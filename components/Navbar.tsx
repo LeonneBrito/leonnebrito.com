@@ -1,16 +1,18 @@
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
 
 import NavLink from './Navlink';
 
 const Navbar = () => {
+  const { location, translations } = useTranslation();
   return (
     <Nav>
       <ul>
-        <NavLink href="/">Início</NavLink>
-        <NavLink href="/about">Sobre</NavLink>
-        <NavLink href="/blog">Blog</NavLink>
-        <NavLink href="/setup">Setup</NavLink>
-        <NavLink href="/contact">Contato</NavLink>
+        <NavLink href="/">{translations.menu.home}</NavLink>
+        <NavLink href="/about">{translations.menu.about}</NavLink>
+        <NavLink href="/blog">{translations.menu.blog}</NavLink>
+        <NavLink href="/setup">{translations.menu.setup}</NavLink>
+        <NavLink href="/contact">{translations.menu.contact}</NavLink>
       </ul>
     </Nav>
   );

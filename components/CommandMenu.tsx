@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { useCommandMenu } from '../hooks/useCommandMenu';
 import { useDebounce } from '../hooks/useDebounce';
 import { useDevice } from '../hooks/useDevice';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface CommandItem {
   icon: ReactElement;
@@ -33,6 +34,8 @@ interface CommandMenuProps {
 const CommandMenu = ({ categories }: CommandMenuProps) => {
   const [search, setSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
+
+  const { translations } = useTranslation();
 
   const router = useRouter();
   const device = useDevice();
@@ -125,7 +128,7 @@ const CommandMenu = ({ categories }: CommandMenuProps) => {
         <React.Fragment>
           <Input
             type="text"
-            placeholder="Digite um comando ou pesquise..."
+            placeholder={translations.kmenu.placeholder}
             value={search}
             onChange={handleSearch}
             onFocus={() => setIsSearching(true)}

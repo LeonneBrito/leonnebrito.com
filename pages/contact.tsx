@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { Envelope, User } from 'phosphor-react';
 
 import { useDebounce } from '../hooks/useDebounce';
+import { useTranslation } from '../hooks/useTranslation';
 import api from '../services/api';
 import { styled } from '../stitches.config';
 import { Button, Heading, Input, TextArea } from '../ui';
@@ -23,29 +24,31 @@ const Contact = () => {
   const debouncedEmail = useDebounce(email, 500);
   const debouncedMessage = useDebounce(message, 500);
 
+  const { translations } = useTranslation();
+
   useEffect(() => {
     if (debouncedName.length < 3 && debouncedName.length > 0) {
-      setNameError('Nome deve ter no mínimo 3 caracteres');
+      setNameError(translations.contact.name_form_error);
     } else {
       setNameError('');
     }
-  }, [debouncedName]);
+  }, [debouncedName, translations.contact]);
 
   useEffect(() => {
     if (!validateEmail(debouncedEmail) && debouncedEmail.length > 0) {
-      setEmailError('Email inválido');
+      setEmailError(translations.contact.email_form_error);
     } else {
       setEmailError('');
     }
-  }, [debouncedEmail]);
+  }, [debouncedEmail, translations.contact]);
 
   useEffect(() => {
     if (debouncedMessage.length < 10 && debouncedMessage.length > 0) {
-      setMessageError('Mensagem deve ter no mínimo 10 caracteres');
+      setMessageError(translations.contact.message_form_error);
     } else {
       setMessageError('');
     }
-  }, [debouncedMessage]);
+  }, [debouncedMessage, translations.contact]);
 
   useEffect(() => {
     if (nameError || emailError || messageError) {
@@ -61,18 +64,20 @@ const Contact = () => {
       await api
         .post('/emails', { name, email, message })
         .then(() => {
-          toast.success('Mensagem enviada com sucesso!');
+          toast.success(translations.contact.success_message, {
+            theme: 'dark'
+          });
           setName('');
           setEmail('');
           setMessage('');
         })
         .catch(() => {
-          toast.error('Erro ao enviar mensagem', {
+          toast.error(translations.contact.error_message, {
             theme: 'dark'
           });
         });
     } else {
-      toast.error('Formulário inválido', {
+      toast.error(translations.contact.form_error, {
         theme: 'dark'
       });
     }
@@ -81,14 +86,11 @@ const Contact = () => {
   return (
     <Content>
       <Heading size={'1'} color="pinkToPurple">
-        Bora trocar umas figurinhas?
+        {translations.contact.title}
       </Heading>
-      <p>
-        Se você tem alguma dúvida, sugestão ou quer apenas conversar, entre em
-        contato comigo. Eu adoro trocar figurinhas e conhecer novas pessoas.
-      </p>
+      <p>{translations.contact.description}</p>
       <Heading size={'2'} color="pinkToPurple">
-        Me envie um e-mail
+        {translations.contact.subtitle}
       </Heading>
       <Form onSubmit={handleSubmit}>
         <InputsGroup>
@@ -97,7 +99,7 @@ const Contact = () => {
             icon={<User />}
             type="text"
             value={name}
-            placeholder="Digite seu nome"
+            placeholder={translations.contact.name_placeholder}
             onChange={e => setName(e.target.value)}
             error={nameError}
           />
@@ -106,7 +108,7 @@ const Contact = () => {
             icon={<Envelope />}
             type="email"
             value={email}
-            placeholder="Digite seu e-mail"
+            placeholder={translations.contact.email_placeholder}
             onChange={e => setEmail(e.target.value)}
             error={emailError}
           />
@@ -114,7 +116,7 @@ const Contact = () => {
             value={message}
             rows={5}
             maxLength={500}
-            placeholder="Digite sua mensagem"
+            placeholder={translations.contact.message_placeholder}
             onChange={e => setMessage(e.target.value)}
             error={messageError}
           />
@@ -123,7 +125,7 @@ const Contact = () => {
             color="pink"
             disabled={!isFormValid || !name || !email || !message}
           >
-            Enviar
+            {translations.contact.submit_button}
           </Button>
         </InputsGroup>
       </Form>

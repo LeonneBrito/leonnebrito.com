@@ -1,0 +1,15 @@
+{
+  "title": "Let's talk a little bit?",
+  "description": "If you have any questions, suggestions or just want to talk, please contact me. I love to chat and meet new people",
+  "subtitle": "Send me an e-mail",
+  "name_placeholder": "Enter your name",
+  "name_form_error": "Name must be at least 3 characters",
+  "email_placeholder": "Enter your email address",
+  "email_form_error": "Invalid e_mail",
+  "message_placeholder": "Enter your message",
+  "message_form_error": "Message must be at least 10 characters long",
+  "submit_button": "Send",
+  "success_message": "Message sent successfully!",
+  "error_message": "Oops, something went wrong. Please try again later.",
+  "form_error": "Invalid form."
+}

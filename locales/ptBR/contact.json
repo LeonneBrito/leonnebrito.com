@@ -1,0 +1,15 @@
+{
+  "title": "Bora trocar umas figurinhas?",
+  "description": "Se você tem alguma dúvida, sugestão ou quer apenas conversar, entre em contato comigo. Eu adoro trocar figurinhas e conhecer novas pessoas.",
+  "subtitle": "Me envie um e-mail",
+  "name_placeholder": "Digite seu nome",
+  "name_form_error": "Nome deve ter no mínimo 3 caracteres",
+  "email_placeholder": "Digite seu e_mail",
+  "email_form_error": "E_mail inválido",
+  "message_placeholder": "Digite sua mensagem",
+  "message_form_error": "Mensagem deve ter no mínimo 10 caracteres",
+  "submit_button": "Enviar",
+  "success_message": "Mensagem enviada com sucesso!",
+  "error_message": "Ops, algo deu errado. Tente novamente mais tarde.",
+  "form_error": "Formulário inválido."
+}

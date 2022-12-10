@@ -6,6 +6,7 @@ import { useDevice } from '../hooks/useDevice';
 import { useMobileMenu } from '../hooks/useMobileMenu';
 import { styled } from '../stitches.config';
 
+import LanguageChange from './LocationChange';
 import MobileMenu from './MobileMenu';
 import Navbar from './Navbar';
 
@@ -35,6 +36,7 @@ const Topbar = () => {
       ) : (
         <>
           <Navbar />
+          <LanguageChange />
           <Command
             size={24}
             style={{ marginRight: '20px' }}

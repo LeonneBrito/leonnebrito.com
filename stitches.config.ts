@@ -25,7 +25,8 @@ export const {
     },
     fonts: {
       body: 'Rubik, sans-serif;',
-      heading: 'Space Grotesk, sans-serif'
+      heading: 'Space Grotesk, sans-serif',
+      mono: 'Space Mono, monospace'
     }
   },
   media: {

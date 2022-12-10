@@ -1,28 +1,38 @@
 import SetupItem from '../components/Setup';
-import { apps, auto, code, desk, equipaments, terminal } from '../constants';
+import {
+  apps,
+  auto,
+  code,
+  desk,
+  deskUS,
+  equipaments,
+  terminal
+} from '../constants';
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
 import { Heading } from '../ui';
 
 const Setup = () => {
+  const { translations, location } = useTranslation();
   return (
     <Content>
       <Heading size={'1'} color={'cyanToGreen'}>
-        Meu setup, minha vida.
+        {translations.setup.title}
       </Heading>
-      <p>
-        Aqui você vai encontrar tudo sobre o meu setup,{' '}
-        <strong>
-          desde o hardware até o software que uso no meu dia a dia
-        </strong>
-        . Sempre que possível, vou tentar atualizar esse post com as novidades
-        que vou adquirindo.
-      </p>
-      <SetupItem title="Equipamentos" items={equipaments} />
-      <SetupItem title="Mesa" items={desk} />
-      <SetupItem title="Automação" items={auto} />
-      <SetupItem title="Código" items={code} />
-      <SetupItem title="Terminal" items={terminal} />
-      <SetupItem title="Aplicativos" items={apps} />
+      <p
+        dangerouslySetInnerHTML={{
+          __html: translations.setup.description
+        }}
+      />
+      <SetupItem title={translations.setup.equipaments} items={equipaments} />
+      <SetupItem
+        title={translations.setup.desk}
+        items={location === 'pt' ? desk : deskUS}
+      />
+      <SetupItem title={translations.setup.automation} items={auto} />
+      <SetupItem title={translations.setup.code} items={code} />
+      <SetupItem title={translations.setup.terminal} items={terminal} />
+      <SetupItem title={translations.setup.apps} items={apps} />
     </Content>
   );
 };

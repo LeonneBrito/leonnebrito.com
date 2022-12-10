@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
+
+import LanguageChange from './LocationChange';
 
 interface MobileMenuProps {
   open: boolean;
@@ -11,6 +14,7 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ open, setOpen }: MobileMenuProps) => {
   const router = useRouter();
+  const { translations } = useTranslation();
 
   useEffect(() => {
     if (open) {
@@ -22,11 +26,12 @@ const MobileMenu = ({ open, setOpen }: MobileMenuProps) => {
   return (
     <Container className={open ? 'active' : ''}>
       <Wrapper>
-        <Link href="/">Início</Link>
-        <Link href="/about">Sobre</Link>
-        <Link href="/blog">Blog</Link>
-        <Link href="/setup">Setup</Link>
-        <Link href="/contact">Contato</Link>
+        <Link href="/">{translations.menu.home}</Link>
+        <Link href="/about">{translations.menu.about}</Link>
+        <Link href="/blog">{translations.menu.blog}</Link>
+        <Link href="/setup">{translations.menu.setup}</Link>
+        <Link href="/contact">{translations.menu.contact}</Link>
+        <LanguageChange />
       </Wrapper>
     </Container>
   );

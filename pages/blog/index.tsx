@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import { GetStaticProps } from 'next';
 
 import Post, { PostProps as IPost } from '../../components/Post';
+import { useTranslation } from '../../hooks/useTranslation';
 import { getPosts } from '../../lib';
 import { styled } from '../../stitches.config';
 import { Heading } from '../../ui';
@@ -10,28 +12,30 @@ interface BlogProps {
 }
 
 const Blog = ({ posts }: BlogProps) => {
+  const { translations } = useTranslation();
   return (
     <Content>
       <Heading size={'1'} color={'yellowToOrange'}>
-        Histórias nossas histórias.
+        {translations.blog.title}
       </Heading>
-      <p>
-        Aqui você encontra artigos de diversas áreas, desde tecnologia até
-        cervejas artesanais e viagens. Espero que goste! :)
-      </p>
+      <p>{translations.blog.description}</p>
       <Heading size={'2'} color={'yellowToOrange'}>
-        Todos os posts
+        {translations.blog.subtitle}
       </Heading>
       <ul>
-        {posts.map(({ slug, title, date, description }) => (
-          <Post
-            key={slug}
-            slug={slug}
-            title={title}
-            description={description}
-            date={date}
-          />
-        ))}
+        {posts.length > 0 ? (
+          posts.map(({ slug, title, date, description }) => (
+            <Post
+              key={slug}
+              slug={slug}
+              title={title}
+              description={description}
+              date={date}
+            />
+          ))
+        ) : (
+          <p>{translations.blog.no_posts}</p>
+        )}
       </ul>
     </Content>
   );
@@ -49,7 +53,7 @@ const Content = styled('div', {
   }
 });
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ctx => {
   const posts = await getPosts();
 
   return {

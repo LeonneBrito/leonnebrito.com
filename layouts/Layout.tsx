@@ -15,80 +15,83 @@ import { CommandCategory } from '../components/CommandMenu';
 import CommandMenu from '../components/CommandMenu';
 import Footer from '../components/Footer';
 import Topbar from '../components/Topbar';
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const commands = [
-  {
-    name: 'Geral',
-    items: [
-      {
-        icon: <Link size={20} />,
-        label: 'Copiar link',
-        shortcut: 'l',
-        action: () => {
-          navigator.clipboard.writeText('https://leonnebrito.com');
-          toast.success('Link copiado com sucesso!', {
-            theme: 'dark'
-          });
-        }
-      },
-      {
-        icon: <EnvelopeOpen size={20} />,
-        label: 'Enviar e-mail',
-        href: '/contact',
-        shortcut: 'e'
-      },
-      {
-        icon: <Code size={20} />,
-        label: 'Código fonte',
-        href: 'https://github.com/LeonneBrito/leonnebrito.com',
-        shortcut: 'g',
-        newTab: true
-      }
-    ]
-  },
-  {
-    name: 'Ir para',
-    items: [
-      {
-        icon: <House size={20} />,
-        label: 'Início',
-        href: '/',
-        shortcut: 'i'
-      },
-      {
-        icon: <UserCircle size={20} />,
-        label: 'Sobre',
-        href: '/about',
-        shortcut: 's'
-      },
-      {
-        icon: <PencilLine size={20} />,
-        label: 'Blog',
-        href: '/blog',
-        shortcut: 'b'
-      },
-      {
-        icon: <Laptop size={20} />,
-        label: 'Setup',
-        href: '/setup',
-        shortcut: 'u'
-      },
-      {
-        icon: <ChatCircleDots size={20} />,
-        label: 'Contato',
-        href: '/contact',
-        shortcut: 'c'
-      }
-    ]
-  }
-] as CommandCategory[];
-
 const Layout = ({ children }: LayoutProps) => {
+  const { translations } = useTranslation();
+
+  const commands = [
+    {
+      name: translations.kmenu.general,
+      items: [
+        {
+          icon: <Link size={20} />,
+          label: translations.kmenu.copy,
+          shortcut: 'l',
+          action: () => {
+            navigator.clipboard.writeText('https://leonnebrito.com');
+            toast.success(translations.kmenu.copy_success, {
+              theme: 'dark'
+            });
+          }
+        },
+        {
+          icon: <EnvelopeOpen size={20} />,
+          label: translations.kmenu.send_email,
+          href: '/contact',
+          shortcut: 'e'
+        },
+        {
+          icon: <Code size={20} />,
+          label: translations.kmenu.source_code,
+          href: 'https://github.com/LeonneBrito/leonnebrito.com',
+          shortcut: 'g',
+          newTab: true
+        }
+      ]
+    },
+    {
+      name: translations.kmenu.go_to,
+      items: [
+        {
+          icon: <House size={20} />,
+          label: translations.kmenu.home,
+          href: '/',
+          shortcut: 'i'
+        },
+        {
+          icon: <UserCircle size={20} />,
+          label: translations.kmenu.about,
+          href: '/about',
+          shortcut: 's'
+        },
+        {
+          icon: <PencilLine size={20} />,
+          label: translations.kmenu.blog,
+          href: '/blog',
+          shortcut: 'b'
+        },
+        {
+          icon: <Laptop size={20} />,
+          label: translations.kmenu.setup,
+          href: '/setup',
+          shortcut: 'u'
+        },
+        {
+          icon: <ChatCircleDots size={20} />,
+          label: translations.kmenu.contact,
+          href: '/contact',
+          shortcut: 'c'
+        }
+      ]
+    }
+  ] as CommandCategory[];
+
   return (
     <section>
       <Topbar />

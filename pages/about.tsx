@@ -1,14 +1,16 @@
 import Image from 'next/image';
 
 import Carrer from '../components/Carrer';
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
 import { Heading } from '../ui';
 
 const About = () => {
+  const { translations } = useTranslation();
   return (
     <Content>
       <Heading size={'1'} color={'purpleToCyan'}>
-        Sobre mim.
+        {translations.about.title}
       </Heading>
       <Info>
         <Image
@@ -20,32 +22,29 @@ const About = () => {
           quality={100}
         />
         <div>
-          <p>
-            Olá, meu nome é <strong>Leonne Brito</strong>. Comecei minha
-            carreira como engenheiro de software em 2015 trabalhando com Ruby.
-          </p>
-          <p>
-            Atualmente sou <strong>Software Engineer</strong> na nav9. Antes
-            disso, trabalhei como Software Engineer na Reserva. Sou natural de{' '}
-            <strong>Parauapebas, Pará</strong> e estou de malas prontas para ir
-            morar em Florianópolis, Santa Catarina com minha esposa e filho.
-          </p>
-          <p>
-            Sou apaixonado por tecnologia, música, e-sports e games. Gosto de
-            aprender coisas novas e compartilhar conhecimento.
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: translations.about.description_line1
+            }}
+          />
+          <p
+            dangerouslySetInnerHTML={{
+              __html: translations.about.description_line2
+            }}
+          />
+          <p>{translations.about.description_line3}</p>
         </div>
       </Info>
       <Infos>
         <div>
           <Heading size={'2'} color={'purpleToCyan'}>
-            Carreira
+            {translations.about.carrer_title}
           </Heading>
           <Carrer
             company="nav9"
             role="Software Engineer"
             location="Parauapebas, PA"
-            date="Ago 2022 - Presente"
+            date={`Ago 2022 - ${translations.about.carrer_present}`}
             link="https://nav9.tech"
           />
           <Carrer
@@ -66,21 +65,21 @@ const About = () => {
             company="Sem Parar"
             role="Senior Development Analyst"
             location="Parauapebas, PA"
-            date="Abr 2022 - Maio 2022"
+            date="Abr 2022 - May 2022"
             link="https://www.semparar.com.br/"
           />
           <Carrer
             company="Triggo Labs"
             role="Senior Development Analyst"
             location="Parauapebas, PA"
-            date="Abr 2022 - Maio 2022"
+            date="Abr 2022 - May 2022"
             link="https://www.triggolabs.com/"
           />
           <Carrer
             company="Trivod"
             role="Software Engineer"
             location="Parauapebas, PA"
-            date="Jan 2022 - Fev 2022"
+            date="Jan 2022 - Feb 2022"
             link="https://www.trivod.com/"
           />
           <Carrer
@@ -93,7 +92,7 @@ const About = () => {
         </div>
         <div>
           <Heading size={'2'} color={'purpleToCyan'}>
-            Formação
+            {translations.about.education_title}
           </Heading>
           <Carrer
             company="Rocketseat"
@@ -106,7 +105,7 @@ const About = () => {
             company="JStack"
             role="Bootcamp JStack"
             location="Online"
-            date="Fev 2022 - o momento"
+            date={`Feb 2022 - ${translations.about.carrer_present}`}
             link="https://jstack.com.br/"
           />
           <Carrer

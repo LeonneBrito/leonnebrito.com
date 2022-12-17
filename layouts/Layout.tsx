@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Snowfall from 'react-snowfall';
 import { toast } from 'react-toastify';
 import {
@@ -18,6 +18,7 @@ import Footer from '../components/Footer';
 import Topbar from '../components/Topbar';
 import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches.config';
+import { isBeforeChristmasDay } from '../utils/isBeforeChristmasDay';
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,6 +26,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { translations } = useTranslation();
+  const [isChristmas, setIsChristmas] = useState(false);
+
+  useEffect(() => {
+    const date = new Date();
+    setIsChristmas(isBeforeChristmasDay(date));
+  }, []);
 
   const commands = [
     {
@@ -95,17 +102,20 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <section>
-      <Snowfall
-        color="#fff"
-        snowflakeCount={100}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%'
-        }}
-      />
+      {isChristmas && (
+        <Snowfall
+          color="#fff"
+          snowflakeCount={100}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 9999
+          }}
+        />
+      )}
       <Topbar />
       <Container>
         <Wrapper>{children}</Wrapper>

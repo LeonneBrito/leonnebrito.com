@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import Snowfall from 'react-snowfall';
 import { toast } from 'react-toastify';
 import {
   ChatCircleDots,
@@ -94,6 +95,17 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <section>
+      <Snowfall
+        color="#fff"
+        snowflakeCount={100}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%'
+        }}
+      />
       <Topbar />
       <Container>
         <Wrapper>{children}</Wrapper>

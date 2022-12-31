@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@fireworks-js/react": "^2.10.0",
     "@next/font": "^13.0.5",
     "@prisma/client": "^4.7.1",
     "@stitches/react": "^1.2.8",

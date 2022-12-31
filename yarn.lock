@@ -108,6 +108,13 @@
   dependencies:
     tslib "^2.1.0"
 
+"@fireworks-js/react@^2.10.0":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@fireworks-js/react/-/react-2.10.0.tgz#f6181036b83002cb46d9b3d8d0f26bc8cc92e2dd"
+  integrity sha512-7ZpJRmOskgHGT9dMGGw7ojKwbeiDKAYUeO+Nms7wH2arU9crp+mDnhGMcpqObUIwqKFo4BAnmREvBuvOFOeZfA==
+  dependencies:
+    fireworks-js "2.10.0"
+
 "@google-cloud/firestore@^6.4.0":
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-6.4.1.tgz#3cd32ffb10a563a9c3c91236b51e49e4cd088393"
@@ -1572,6 +1579,11 @@ firebase-admin@^11.3.0:
   optionalDependencies:
     "@google-cloud/firestore" "^6.4.0"
     "@google-cloud/storage" "^6.5.2"
+
+fireworks-js@2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/fireworks-js/-/fireworks-js-2.10.0.tgz#43ca7311331432204717e7ec97ee2fd0a1148c3d"
+  integrity sha512-SC5pGAwLDGo92FN9WmflM6fMB0vOyrTauUd/pn6rKIb0/NQ0z2R6CYqSQ4rxRl5qdHVdKbeYw01Wdnfd87ETTg==
 
 flat-cache@^3.0.4:
   version "3.0.4"

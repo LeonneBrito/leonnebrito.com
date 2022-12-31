@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Snowfall from 'react-snowfall';
 import { toast } from 'react-toastify';
+import Fireworks from '@fireworks-js/react';
 import {
   ChatCircleDots,
   Code,
@@ -27,10 +28,20 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const { translations } = useTranslation();
   const [isChristmas, setIsChristmas] = useState(false);
+  const [isNewYear, setIsNewYear] = useState(true);
 
   useEffect(() => {
     const date = new Date();
     setIsChristmas(isBeforeChristmasDay(date));
+
+    if (
+      date.getMonth() === 11 &&
+      date.getDate() === 31 &&
+      date.getMonth() === 0 &&
+      date.getDate() === 1
+    ) {
+      setIsNewYear(true);
+    }
   }, []);
 
   const commands = [
@@ -113,6 +124,25 @@ const Layout = ({ children }: LayoutProps) => {
             width: '100%',
             height: '100%',
             zIndex: 9999
+          }}
+        />
+      )}
+      {isNewYear && (
+        <Fireworks
+          options={{
+            acceleration: 1.05,
+            rocketsPoint: {
+              min: 0,
+              max: 100
+            }
+          }}
+          style={{
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            background: 'transparent'
           }}
         />
       )}

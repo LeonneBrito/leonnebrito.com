@@ -35,10 +35,8 @@ const Layout = ({ children }: LayoutProps) => {
     setIsChristmas(isBeforeChristmasDay(date));
 
     if (
-      date.getMonth() === 11 &&
-      date.getDate() === 31 &&
-      date.getMonth() === 0 &&
-      date.getDate() === 1
+      (date.getMonth() === 11 && date.getDate() === 31) ||
+      (date.getMonth() === 0 && date.getDate() === 1)
     ) {
       setIsNewYear(true);
     }

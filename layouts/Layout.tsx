@@ -28,7 +28,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const { translations } = useTranslation();
   const [isChristmas, setIsChristmas] = useState(false);
-  const [isNewYear, setIsNewYear] = useState(true);
+  const [isNewYear, setIsNewYear] = useState(false);
 
   useEffect(() => {
     const date = new Date();

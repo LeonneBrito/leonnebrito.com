@@ -159,6 +159,11 @@ const Infos = styled('div', {
   justifyContent: 'space-between',
   gap: '2rem',
 
+  div: {
+    width: '100%',
+    marginY: '15px'
+  },
+
   '@bp2': {
     flexDirection: 'column'
   }

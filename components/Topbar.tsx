@@ -39,7 +39,7 @@ const Topbar = () => {
           <LanguageChange />
           <Command
             size={24}
-            style={{ marginRight: '20px' }}
+            style={{ marginRight: '20px', marginLeft: '20px' }}
             onClick={() => setIsOpenCommandMenu(true)}
           />
         </>

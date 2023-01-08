@@ -6,8 +6,8 @@ export const equipaments = [
     link: 'https://www.apple.com/br/mac-mini/'
   },
   {
-    name: `LG 25" (25UM58-P)`,
-    link: 'https://www.lg.com/br/monitores/lg-25UM58-P'
+    name: `LG 29" (29WK600)`,
+    link: 'https://www.lg.com/br/monitores/lg-29wk600-w'
   },
   {
     name: 'Dell 23.8" (P2422H)',
@@ -18,8 +18,8 @@ export const equipaments = [
     link: 'https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard'
   },
   {
-    name: 'Logitech G305',
-    link: 'https://www.logitechg.com/pt-br/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.html'
+    name: 'Logitech MX Master 3s',
+    link: 'https://www.logitech.com/pt-br/products/mice/mx-master-3s.html'
   },
   {
     name: 'Canon 60D',

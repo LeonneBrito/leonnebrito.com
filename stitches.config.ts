@@ -24,9 +24,9 @@ export const {
       yellow500: '#ffff80'
     },
     fonts: {
-      body: 'Rubik, sans-serif;',
-      heading: 'Space Grotesk, sans-serif',
-      mono: 'Space Mono, monospace'
+      body: 'Atkinson Hyperlegible, sans-serif',
+      heading: 'Darker Grotesque, sans-serif',
+      mono: 'Fira Code, monospace'
     }
   },
   media: {

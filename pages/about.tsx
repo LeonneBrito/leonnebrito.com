@@ -6,7 +6,7 @@ import { styled } from '../stitches.config';
 import { Heading } from '../ui';
 
 const About = () => {
-  const { translations } = useTranslation();
+  const { location, translations } = useTranslation();
   return (
     <Content>
       <Heading size={'1'} color={'purpleToCyan'}>
@@ -96,25 +96,35 @@ const About = () => {
           </Heading>
           <Carrer
             company="Rocketseat"
-            role="Bootcamp Ignite"
+            role="Ignite"
             location="Online"
             date="Mar 2021 - Jul 2021"
             link="https://rocketseat.com.br/"
           />
           <Carrer
             company="JStack"
-            role="Bootcamp JStack"
+            role="JStack"
             location="Online"
             date={`Feb 2022 - ${translations.about.carrer_present}`}
             link="https://jstack.com.br/"
           />
-          <Carrer
-            company="UFT"
-            role="Bacharelado em Ciência da Computação"
-            location="Palmas, TO"
-            date="Ago 2017 - Ago 2018"
-            link="https://www.uft.edu.br/"
-          />
+          {location === 'pt' ? (
+            <Carrer
+              company="UFT"
+              role="Bacharelado em Ciência da Computação"
+              location="Palmas, TO"
+              date="Ago 2017 - Ago 2018"
+              link="https://www.uft.edu.br/"
+            />
+          ) : (
+            <Carrer
+              company="UFT"
+              role="Bachelor of Computer Science"
+              location="Palmas, TO"
+              date="Ago 2017 - Ago 2018"
+              link="https://www.uft.edu.br/"
+            />
+          )}
         </div>
       </Infos>
     </Content>

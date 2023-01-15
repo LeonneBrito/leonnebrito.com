@@ -4,7 +4,7 @@ import { styled } from '../stitches.config';
 import NavLink from './Navlink';
 
 const Navbar = () => {
-  const { location, translations } = useTranslation();
+  const { translations } = useTranslation();
   return (
     <Nav>
       <ul>
